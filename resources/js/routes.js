@@ -14,8 +14,8 @@ import Post from './components/Post.vue';
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        {path: '/', component: App},
-        {path: '/post/:id', component: Post},
+        {path: '/', component: App, name: 'App'},
+        {path: '/post/:id', component: Post, name: 'post'},
     ],
 });
 
