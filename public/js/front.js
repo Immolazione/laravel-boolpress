@@ -1962,9 +1962,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Post',
-  props: ['post']
+  props: ['post'],
+  methods: {
+    getPosts: function getPosts() {
+      var _this = this;
+
+      axios.get('http://127.0.0.1:8000/api/post/' + this.$route.params.id).then(function (res) {
+        _this.post = res.data;
+      });
+    }
+  },
+  data: function data() {
+    return {
+      post: {}
+    };
+  }
 });
 
 /***/ }),
@@ -37586,13 +37602,23 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.post.content))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.post.slug))]),
-  ])
+  return _c(
+    "div",
+    [
+      _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.post.slug))]),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        { attrs: { to: { name: _vm.post, params: { id: _vm.post.id } } } },
+        [_vm._v("Dettagli")]
+      ),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
