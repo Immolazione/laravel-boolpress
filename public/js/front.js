@@ -1967,19 +1967,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Post',
   props: ['post'],
-  methods: {
-    getPosts: function getPosts() {
-      var _this = this;
-
-      axios.get('http://127.0.0.1:8000/api/post/' + this.$route.params.id).then(function (res) {
-        _this.post = res.data;
-      });
-    }
-  },
   data: function data() {
-    return {
-      post: {}
-    };
+    return {};
   }
 });
 
@@ -37567,21 +37556,8 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "d-flex" },
-    _vm._l(_vm.posts, function (post) {
-      return _c("Post", { key: post.id, attrs: { post: post } })
-    }),
-    1
-  )
-}
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
 
 
 
@@ -37613,7 +37589,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "router-link",
-        { attrs: { to: { name: "post", params: { id: _vm.post.id } } } },
+        { attrs: { to: { name: "detail", params: { id: _vm.post.id } } } },
         [_vm._v("Dettagli")]
       ),
     ],
@@ -53246,9 +53222,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _components_App_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     name: 'App'
   }, {
+    path: '/posts',
+    component: _components_Post_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }, {
     path: '/post/:id',
-    component: _components_Post_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    name: 'post'
+    component: Detail,
+    name: 'Detail'
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);

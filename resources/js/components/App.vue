@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex">
-        <Post :post='post' v-for="post in posts" :key="post.id" />
+        <Post :post='post' v-for="post in posts" :key="post.id">
     </div>
 </template>
 

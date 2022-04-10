@@ -15,7 +15,8 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {path: '/', component: App, name: 'App'},
-        {path: '/post/:id', component: Post, name: 'post'},
+        {path: '/posts', component: Post},
+        {path: '/post/:id', component: Detail, name: 'Detail'},
     ],
 });
 

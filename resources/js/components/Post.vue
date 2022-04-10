@@ -6,7 +6,7 @@
         <!-- <img src="{{ post.image }}" alt="image"> -->
         <p>{{ post.slug }}</p>
 
-        <router-link :to="{name: 'post', params: {id:post.id}}">Dettagli</router-link>
+        <router-link :to="{name: 'detail', params: {id:post.id}}">Dettagli</router-link>
     </div>
 
 </template>
@@ -15,16 +15,8 @@
 export default {
     name: 'Post',
     props: ['post'],
-    methods:{
-        getPosts(){
-            axios.get('http://127.0.0.1:8000/api/post/' + this.$route.params.id).then( (res) => {
-                this.post = res.data;
-            })
-        }
-    },
     data(){
         return{
-            post: {},
         }
     }
 }
