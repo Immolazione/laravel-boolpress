@@ -1,19 +1,28 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Benvenuti</div>
-
-                    <div class="card-body">
-                        <h1>Sito in Costruzione</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="d-flex">
+        <Post :post='post' v-for="post in posts" :key="post.id" />
     </div>
 </template>
 
 <script>
-   name: 'App';
+    import Post from './Post.vue'
+    export default {
+        name: 'App',
+        components: {Post},
+        data(){
+            return{
+                posts: [],
+            }
+        },
+        methods:{
+            getPosts(){
+                axios.get('http://127.0.0.1:8000/api/posts').then( (res) => {
+                    this.posts = res.data;
+                })
+            }
+        },
+        mounted(){
+            this.getPosts();
+        }
+    }
 </script>
