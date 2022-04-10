@@ -12,16 +12,11 @@ import Post from './components/Post.vue';
 
 // Inizializziamo una nuovo VueRouter
 const router = new VueRouter({
-    mode: 'history', // Serve a simulare la pagina web e mi permette di navigare come in un browsers
-
-    // Qui elenco tutte le mie rotte, il path è l'url e il component: punta al mio componente
-    // occhio all'ordine in cui le metti
+    mode: 'history',
     routes: [
         {path: '/', component: App},
         {path: '/post/:id', component: Post},
     ],
 });
 
-
-// Esporto l'oggetto 'router' per usarlo dentro il file di configurazione di vue (front.js)
 export default router;
