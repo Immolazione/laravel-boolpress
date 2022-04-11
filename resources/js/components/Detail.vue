@@ -1,6 +1,6 @@
 <template>
    <div>
-       <Post />
+       <Post :post="post" />
     </div>
 </template>
 
@@ -8,17 +8,25 @@
 import Post from './Post.vue'
 export default {
     name: 'Detail',
-    props: ['post'],
+    data(){
+        return {
+            post: {},
+        }
+    },
     components: {
         Post
     },
     methods:{
-    getPosts(){
-        axios.get('http://127.0.0.1:8000/api/post/' + this.$route.params.id).then( (res) => {
+        getPosts(){
+            axios.get('http://127.0.0.1:8000/api/post/' + this.$route.params.id).then( (res) => {
             this.post = res.data;
         })
         }
     },
+    mounted(){
+        this.getPosts();
+    }
+
 }
 </script>
 
